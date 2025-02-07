@@ -7,13 +7,14 @@ import time
 
 HOST = '0.0.0.0'  # Listen on all available interfaces
 PORT = 12345
+BUFFER_SIZE = 8192
 
 def handle_client(conn, addr, filepath):
     print(f"[+] Connection from {addr}")
     try:
         with open(filepath, "rb") as f:
 
-            while chunk := f.read(8192):  # Read 8KB at a time
+            while chunk := f.read(BUFFER_SIZE):  # Read 8KB at a time
                 conn.sendall(chunk)
 
             print(f"Sent file: {filepath} to {addr}")
