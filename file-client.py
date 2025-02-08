@@ -38,7 +38,7 @@ def download_file(server_ip, server_port, save_path):
                     mbps = bytes_per_second / (1024 * 1024)  # Convert to MB/s
                     print(f"Speed: {mbps:.2f} MB/s", end="\r")  # \r overwrites the previous line
 
-        print("\n")  # Add a newline after the download finishes
+        print("\n") 
 
         # Print file size in MB or GB
         file_size_bytes = os.path.getsize(save_path)
@@ -64,7 +64,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     server_ip = sys.argv[1]
-    server_port = int(sys.argv[2]) # Convert port to integer
+    server_port = int(sys.argv[2]) 
     save_path = sys.argv[3]
 
     if not os.path.exists(os.path.dirname(save_path)): #check if save directory exists
